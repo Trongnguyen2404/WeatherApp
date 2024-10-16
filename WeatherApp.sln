@@ -1,0 +1,27 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.34909.67
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WeatherApp", "WeatherApp\WeatherApp.csproj", "{DE737699-0253-4D93-AAB9-28A1D11B6C75}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DE737699-0253-4D93-AAB9-28A1D11B6C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE737699-0253-4D93-AAB9-28A1D11B6C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE737699-0253-4D93-AAB9-28A1D11B6C75}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{DE737699-0253-4D93-AAB9-28A1D11B6C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE737699-0253-4D93-AAB9-28A1D11B6C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE737699-0253-4D93-AAB9-28A1D11B6C75}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BB0A7F92-C072-42F3-BFA2-7CBA4B9CAEA6}
+	EndGlobalSection
+EndGlobal

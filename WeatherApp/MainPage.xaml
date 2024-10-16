@@ -1,0 +1,249 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:controls="clr-namespace:WeatherApp.Controls"
+             Shell.NavBarIsVisible="False"
+             BackgroundImageSource="https://kynguyenlamdep.com/wp-content/uploads/2021/12/hinh-nen-bau-troi-xanh-scaled.jpg"
+             x:Class="WeatherApp.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,10"
+            Spacing="25">
+            <HorizontalStackLayout VerticalOptions="CenterAndExpand" Spacing="30">
+                <VerticalStackLayout VerticalOptions="Center">
+                    <Label x:Name="nowDay" FontAttributes="Bold"  HorizontalTextAlignment="Center"/>
+                    <Label x:Name="nowTime" FontAttributes="Bold"  HorizontalTextAlignment="Center"/>
+                </VerticalStackLayout>
+
+                <SearchBar WidthRequest="360"
+                HeightRequest="40"
+                Placeholder="Search items..."
+                HorizontalOptions="FillAndExpand"
+                SearchButtonPressed="OnSearchButtonPressed"/>
+                <Border Stroke="Transparent"  Padding="10" BackgroundColor="#80FFFFFF" VerticalOptions="Center">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="20,20,20,20" />
+                    </Border.StrokeShape>
+                    <Label Text="Your Location" 
+                           HorizontalTextAlignment="Center">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapLocation_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Border>
+            </HorizontalStackLayout>
+        <Grid>
+
+                <HorizontalStackLayout Spacing="40" Margin="0,40,0,0">
+                    <VerticalStackLayout VerticalOptions="Center" WidthRequest="420">
+                        <Label x:Name="LblCity" FontAttributes="Bold" FontSize="24" HorizontalTextAlignment="Center"/>
+                        <Label x:Name="LblWeatherDescription" HorizontalTextAlignment="Center"/>
+                        <Label x:Name="LbltimeDate" HorizontalTextAlignment="Center"/>
+                        <Image x:Name="ImgWeatherIcon"
+                        HeightRequest="185"
+                        />
+                        <Border Stroke="Transparent"  Padding="30,20" BackgroundColor="#80FFFFFF" VerticalOptions="Center">
+                            <Border.StrokeShape>
+                                <RoundRectangle CornerRadius="20,20,20,20" />
+                            </Border.StrokeShape>
+                            <HorizontalStackLayout VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Spacing="40">
+                                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Image HeightRequest="24" Source="https://cdn-icons-png.freepik.com/512/71/71296.png"/>
+                                    <Label x:Name="LblHumidity"/>
+                                </VerticalStackLayout>
+                                <Label x:Name="LblTemperature"
+                                   FontSize="40" FontAttributes="Bold" Text="28°C"/>
+                                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center">
+                                    <Image HeightRequest="24" Source="https://cdn-icons-png.flaticon.com/512/2011/2011448.png"/>
+                                    <Label x:Name="LblWind"/>
+                                </VerticalStackLayout>
+                            </HorizontalStackLayout>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <Border Stroke="Transparent"   BackgroundColor="#80FFFFFF" VerticalOptions="Center" >
+                        <Border.StrokeShape>
+                            <RoundRectangle CornerRadius="20,20,20,20" />
+                        </Border.StrokeShape>
+
+                        <VerticalStackLayout HorizontalOptions="Center" WidthRequest="160">
+
+                            <StackLayout x:Name="ForecastDay1" >
+                                <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                                    <HorizontalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnHorizontalStackLayoutTapped1" />
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                    <VerticalStackLayout VerticalOptions="Center" Padding="0,0,0,18">
+                                        <Label x:Name="LblDate1" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                        <Label x:Name="LblDescription1" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                            <BoxView HeightRequest="2" Color="#78A7D6"/>
+                            <StackLayout x:Name="ForecastDay2" >
+                                <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                                    <HorizontalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnHorizontalStackLayoutTapped2" />
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                    <VerticalStackLayout VerticalOptions="Center" Padding="0,0,0,18">
+                                        <Label x:Name="LblDate2" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                        <Label x:Name="LblDescription2" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                            <BoxView HeightRequest="2" Color="#78A7D6"/>
+                            <StackLayout x:Name="ForecastDay3" >
+                                <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                                    <HorizontalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnHorizontalStackLayoutTapped3" />
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                    <VerticalStackLayout VerticalOptions="Center" Padding="0,0,0,18">
+                                        <Label x:Name="LblDate3" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                        <Label x:Name="LblDescription3" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                            <BoxView HeightRequest="2" Color="#78A7D6"/>
+                            <StackLayout x:Name="ForecastDay4" >
+                                <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                                    <HorizontalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnHorizontalStackLayoutTapped4" />
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                    <VerticalStackLayout VerticalOptions="Center" Padding="0,0,0,18">
+                                        <Label x:Name="LblDate4" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                        <Label x:Name="LblDescription4" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                            <BoxView HeightRequest="2" Color="#78A7D6"/>
+                            <StackLayout x:Name="ForecastDay5" >
+
+                                <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                                    <HorizontalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnHorizontalStackLayoutTapped5" />
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                    <VerticalStackLayout VerticalOptions="Center" Padding="0,0,0,18">
+                                        <Label x:Name="LblDate5" HorizontalTextAlignment="Center" WidthRequest="160" />
+                                        <Label x:Name="LblDescription5" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                            <BoxView HeightRequest="2" Color="#78A7D6"/>
+                            <StackLayout x:Name="ForecastDay6" >
+
+                                <HorizontalStackLayout VerticalOptions="Center" Spacing="20">
+                                    <HorizontalStackLayout.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnHorizontalStackLayoutTapped6" />
+                                    </HorizontalStackLayout.GestureRecognizers>
+                                    <VerticalStackLayout VerticalOptions="Center" Padding="0,0,0,18">
+                                        <Label x:Name="LblDate6" HorizontalTextAlignment="Center" WidthRequest="160" />
+                                        <Label x:Name="LblDescription6" HorizontalTextAlignment="Center" WidthRequest="160"/>
+                                    </VerticalStackLayout>
+                                </HorizontalStackLayout>
+                            </StackLayout>
+
+                        </VerticalStackLayout>
+                    </Border>
+                </HorizontalStackLayout>
+                <ListView x:Name="CitiesListView"
+              IsVisible="False"
+              ItemTapped="CitiesListView_ItemTapped"
+              MaximumHeightRequest="100"
+              WidthRequest="360"
+              BackgroundColor="#80000000"
+              Margin="0,0,50,0"
+              VerticalOptions="Start"
+              HorizontalOptions="Center">
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <ViewCell>
+                                    <Label Text="{Binding name}"
+                           TextColor="White"
+                           Padding="10"
+                           BackgroundColor="Transparent"/>
+                                </ViewCell>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+            </Grid>
+            <Border Stroke="Transparent"   Padding="30,10" BackgroundColor="#80FFFFFF" VerticalOptions="Center">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="20,20,20,20" />
+                </Border.StrokeShape>
+
+
+
+                <ScrollView Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+                    <HorizontalStackLayout Spacing="30" HorizontalOptions="Start" VerticalOptions="Center" >
+                        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" x:Name="Column1">
+                            <Label x:Name="TempLabel1" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Frame x:Name="TempRectangle1" BackgroundColor="#9C77FE" WidthRequest="43" HeightRequest="20" VerticalOptions="FillAndExpand" CornerRadius="8" HasShadow="False"/>
+                            <Label x:Name="TimeLabel1" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Label x:Name="HiddenListColumn1" IsVisible="False"/>
+
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" x:Name="Column2">
+                            <Label x:Name="TempLabel2" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Frame x:Name="TempRectangle2" BackgroundColor="#9C77FE" WidthRequest="43" HeightRequest="20" VerticalOptions="FillAndExpand" CornerRadius="8" HasShadow="False"/>
+                            <Label x:Name="TimeLabel2" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Label x:Name="HiddenListColumn2" IsVisible="False"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" x:Name="Column3">
+                            <Label x:Name="TempLabel3" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Frame x:Name="TempRectangle3" BackgroundColor="#9C77FE" WidthRequest="43" HeightRequest="20" VerticalOptions="FillAndExpand" CornerRadius="8" HasShadow="False"/>
+                            <Label x:Name="TimeLabel3" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Label x:Name="HiddenListColumn3" IsVisible="False"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" x:Name="Column4">
+                            <Label x:Name="TempLabel4" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Frame x:Name="TempRectangle4" BackgroundColor="#9C77FE" WidthRequest="43" HeightRequest="20" VerticalOptions="FillAndExpand" CornerRadius="8" HasShadow="False"/>
+                            <Label x:Name="TimeLabel4" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Label x:Name="HiddenListColumn4" IsVisible="False"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" x:Name="Column5">
+                            <Label x:Name="TempLabel5" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Frame x:Name="TempRectangle5" BackgroundColor="#9C77FE" WidthRequest="43" HeightRequest="20" VerticalOptions="FillAndExpand" CornerRadius="8" HasShadow="False"/>
+                            <Label x:Name="TimeLabel5" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Label x:Name="HiddenListColumn5" IsVisible="False"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" x:Name="Column6">
+                            <Label x:Name="TempLabel6" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Frame x:Name="TempRectangle6" BackgroundColor="#9C77FE" WidthRequest="43" HeightRequest="20" VerticalOptions="FillAndExpand" CornerRadius="8" HasShadow="False"/>
+                            <Label x:Name="TimeLabel6" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Label x:Name="HiddenListColumn6" IsVisible="False"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" x:Name="Column7">
+                            <Label x:Name="TempLabel7" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Frame x:Name="TempRectangle7" BackgroundColor="#9C77FE" WidthRequest="43" HeightRequest="20" VerticalOptions="FillAndExpand" CornerRadius="8" HasShadow="False"/>
+                            <Label x:Name="TimeLabel7" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Label x:Name="HiddenListColumn7" IsVisible="False"/>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout VerticalOptions="End" HorizontalOptions="Center" x:Name="Column8">
+                            <Label x:Name="TempLabel8" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Frame x:Name="TempRectangle8" BackgroundColor="#9C77FE" WidthRequest="43" HeightRequest="20" VerticalOptions="FillAndExpand" CornerRadius="8" HasShadow="False"/>
+                            <Label x:Name="TimeLabel8" HorizontalTextAlignment="Center" Text="Null"/>
+                            <Label x:Name="HiddenListColumn8" IsVisible="False"/>
+                        </VerticalStackLayout>
+                    </HorizontalStackLayout>
+                </ScrollView>
+
+
+
+            </Border>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
